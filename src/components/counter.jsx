@@ -18,7 +18,7 @@ class Counter extends Component {
     return (
       <div>
         <h1>{this.state.timer}</h1>
-        <button onClick = {this.starter} disabled = {this.state.timer != 0}>Start</button>
+        <button onClick = {this.starter}>Start</button>
         <button onClick = {this.stopper}>Stop</button>
         <button onCLick = {this.reset} disabled = {this.state.timer === 0}>Reset</button>
       </div>
