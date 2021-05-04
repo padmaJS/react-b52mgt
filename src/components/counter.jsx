@@ -11,8 +11,8 @@ class Counter extends Component {
     clearInterval(this.timeStart);
   }
   reset = () => {
-    this.setState({timer : 0});
-    
+    clearInterval(this.timeStart);
+    this.setState({timer : 0});   
   }
   render() {
     return (
@@ -20,7 +20,7 @@ class Counter extends Component {
         <h1>{this.state.timer}</h1>
         <button onClick = {this.starter}>Start</button>
         <button onClick = {this.stopper}>Stop</button>
-        <button onCLick = {this.reset} disabled = {this.state.timer === 0}>Reset</button>
+        <button onClick = {this.reset} disabled = {this.state.timer === 0}>Reset</button>
       </div>
     );
   }
