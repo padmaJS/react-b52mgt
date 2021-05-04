@@ -2,33 +2,25 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    counter: 0
+    timer: 0
   };
-  updateCounter = () => {
-    this.setState({ counter: this.state.counter + 1 });
-  };
-  decreaseCounter = () => {
-    this.state.counter > 0
-      ? this.setState({ counter: this.state.counter - 1 })
-      : this.setState({ counter: 0 });
-  };
-  resetCounter = () =>{
-    this.setState({counter: 0});
+  starter = () => {
+    this.timeStart = setInterval(() => this.setState({timer : this.state.timer + 1}),1000);
   }
-  count() {
-    const { counter } = this.state;
-    return counter === 0 ? "Zero" : counter;
+  stopper = () => {
+    clearInterval(this.timeStart);
+  }
+  reset = () => {
+    this.setState({timer : 0});
+    
   }
   render() {
     return (
       <div>
-        <h1>
-          You've pressed the button {this.count()} time
-          {this.state.counter > 1 && "s"}
-        </h1>
-        <button onClick={this.updateCounter}>Increase</button>
-        <button onClick={this.decreaseCounter}>Decrease</button>
-        <button onClick={this.resetCounter}>Reset</button>
+        <h1>{this.state.timer}</h1>
+        <button onClick = {this.starter}>Start</button>
+        <button onClick = {this.stopper}>Stop</button>
+        <button onCLick = {this.reset}>Reset</button>
       </div>
     );
   }
