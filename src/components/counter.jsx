@@ -16,23 +16,23 @@ class Counter extends Component {
     this.setState({seconds : 0});   
   }
   showSeconds(){
-    if(this.state.seconds < 10){
-        return "0" + this.state.seconds;
-      }
     if(this.state.minutes > 59){
       while(this.state.minutes > 59){
         this.setState({seconds : this.state.seconds - 60});
         this.setState({minutes : this.state.minutes + 1});
       }
-      if(this.state.seconds < 10){
-        return "0" + this.state.seconds;
-      }else{
-        return this.state.seconds;
-      }
     }
+    if(this.state.seconds < 10){
+      return "0" + this.state.seconds;
+    }else{
+      return this.state.seconds;
+      }
+      
   }
   showMinutes(){
-    
+    if(this.state.minutes < 10){
+        return "0" + this.state.minutes;
+      }
   }
   render() {
     return (
