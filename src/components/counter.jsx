@@ -22,6 +22,7 @@ class Counter extends Component {
     clearInterval(this.timeStart);
     this.setState({timerOff : false})
     this.setState({seconds : 0});   
+    this.setState({minutes : 0}); 
   }
   showSeconds(){
     if(this.state.seconds >= 60){
