@@ -16,9 +16,9 @@ class Counter extends Component {
     this.setState({seconds : 0});   
   }
   showSeconds(){
-    if(this.state.seconds > 59){
-      while(this.state.seconds > 59){
-        this.setState({seconds : this.state.seconds - 60});
+    if(this.state.seconds >= 60){
+      while(this.state.seconds >= 60){
+        this.setState({seconds : 0});
         this.setState({minutes : this.state.minutes + 1});
       }
     }
@@ -27,12 +27,13 @@ class Counter extends Component {
     }else{
       return this.state.seconds;
     }
-      
   }
   showMinutes(){
     if(this.state.minutes < 10){
         return "0" + this.state.minutes;
-      }
+      }else{
+      return this.state.minutes;
+    }
   }
   render() {
     return (
